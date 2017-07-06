@@ -1,0 +1,23 @@
+import acm.program.*;
+import acm.graphics.*;
+import java.awt.*;
+ 
+public class FeltBoard extends GraphicsProgram {
+ 
+   public void run() {
+      //get 
+
+
+      GRect rect = new GRect(100, 5
+      rect.setFilled(true);
+      rect.setColor(Color.RED);
+      add(rect);
+      GOval oval = new GOval(150, 50 + 50 / PHI, 100, 100 / PHI);
+      oval.setFilled(true);
+      oval.setColor(Color.GREEN);
+      add(oval);
+   }
+ 
+/** Constant representing the golden ratio */
+   public static final double PHI = 1.618;
+ 
