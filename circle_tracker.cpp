@@ -13,50 +13,83 @@
 
 //int beacon_ids[NUM_BEACONS] = {}
 
+/*
+int main() {
+    // Map initialization.
+    double map_length = -1;
+
+    cout << "Enter map length" << endl;
+    cin >> map_length;
+
+    while(map_length < 0) {
+        cout << "Please enter a positive map length" << endl;
+        cin >> map_length;
+    }
+
+    double map_width = -1;
+    
+    cout << "Enter map width" << endl;
+    cin >> map_width;
+
+    while(map_width < 0) {
+        cout << "Please enter a positive map width" << endl;
+        cin >> map_width;
+    }
+
+    cout << "Map dimensions: (" << map_length << ", " << map_width << ")" << endl;
+
+    
+    // Build map
+    Beacon* beacons[NUM_BEACONS];
+
+    // Initialize the beacons
+
+    for(int i = 0; i < NUM_BEACONS; i++)
+}
+*/
 
 
 int main() {
     // Map Initialization
     double map_length = -1;  
       cout << "Enter map length" << endl; 
-      cin << map_length; 
+      cin >> map_length; 
       while(map_length < 0){
         cout << "Please enter a positivie map length" << endl; 
-        cin << map_length; 
+        cin >> map_length; 
       }
       double map_width = -1; 
       cout <<"Enter map width" << endl; 
-      cin << map_width; 
+      cin >> map_width; 
       while(map_width < 0){
         cout << "Please enter a positivie map width" << endl; 
-        cin << map_width; 
+        cin >> map_width; 
       }
-      cout << "Map dimensions: (" << map_length << ", " << map_width ")" << endl; 
+      cout << "Map dimensions: (" << map_length << ", " << map_width << ")" << endl; 
 
   //build map       
 
   
 
-  Beacon beacons[NUM_BEACONS];
+  Beacon* beacons[NUM_BEACONS];
   //Initialize the beacons 
 
     for(int i=0; i<NUM_BEACONS; i++){                                                                                                                                                                       
         double bx = -1;                                                                                                                                                                                        
       cout << "Enter x coordinate for beacon " << i << ":" << endl; 
-      cin << bx;  
+      cin >> bx;  
       while(bx < 0 || bx > map_width){
          cout << "Beacon " << i << " out of bounds, please enter valid x coordinate" << endl;
-         cin << bx;  
+         cin >> bx;  
       }
       double by = -1;                                                                                                                                                                                        
       cout << "Enter y coordinate for beacon " << i << ":" << endl; 
-      cin << by;   
+      cin >> by;   
       while(by < 0 || by > map_length){
           cout << "Beacon " << i << " out of bounds, please enter valid y coordinate" << endl;
-          cin << by;    
-     }                                                                                                                                                                                        
-      Beacon b(i, bx, by);
-      beacons[i] = b;
+          cin >> by;    
+     }                                                                                                                                                                                 
+      beacons[i] = new Beacon(i, bx, by);
     }          
 
   for(int i =0; i<NUM_BEACONS; i++){
@@ -64,7 +97,7 @@ int main() {
   }                                                                                                                                                                                           
 
   //wait for user to be ready for tracking                                                                                                                                                                
-  system("pause");
+  //system("pause");
 
   while(true){
       //get beacon numbers and radii from app                                                                                                                                                                                                                                                                                                                                                                
