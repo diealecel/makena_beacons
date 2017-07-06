@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <iostream>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
@@ -95,6 +96,8 @@ int calculateThreeCircleIntersection(double x0, double y0, double r0, double x1,
 }
 
 int main(){
+ 
+  // Map Initialization
   double map_length = -1;  
   cout << "Enter map length" << endl; 
   cin << map_length; 
@@ -113,23 +116,25 @@ int main(){
 
   //build map                                                                                                                                                                                             
 
-  Beacon beacons[NUM_BEACONS];
+  
 
-  //Initialize the beacons                                                                                                                                                                          
+  Beacon beacons[NUM_BEACONS];
+  //Initialize the beacons 
+
     for(int i=0; i<NUM_BEACONS; i++){                                                                                                                                                                       
        double bx = -1;                                                                                                                                                                                        
       cout << "Enter x coordinate for beacon " << i << ":" << endl; 
       cin << bx;  
       while(bx < 0 || bx > map_width){
          cout << "Beacon " << i << " out of bounds, please enter valid x coordinate" << endl;
-         bx = getdouble(); 
+         cin << bx;  
       }
       double by = -1;                                                                                                                                                                                        
       cout << "Enter y coordinate for beacon " << i << ":" << endl; 
       cin << by;   
       while(by < 0 || by > map_length){
           cout << "Beacon " << i << " out of bounds, please enter valid y coordinate" << endl;
-          by = getdouble(); 
+          cin << by;    
      }                                                                                                                                                                                        
       Beacon b;                                                                                                                                                                                             
       b.beacon_init(i, bx, by);                                                                                                                                                               
@@ -137,6 +142,7 @@ int main(){
   }                                                                                                                                                                                                     
 
   //wait for user to be ready for tracking                                                                                                                                                                
+  system("pause");
 
   while(true){
       //get beacon numbers and radii from app                                                                                                                                                                                                                                                                                                                                                                

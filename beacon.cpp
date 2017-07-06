@@ -19,3 +19,8 @@ double get_x(){
 double get_y(){
   return beacony;
 }
+
+ostream& operator<<(ostream& out, const Beacon& b){
+	out << "Beacon " << beacon_id << " at (" << beaconx << ", " << beacony << ")" << endl; 
+    return out;
+}

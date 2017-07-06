@@ -1,4 +1,4 @@
-// WOW
+
 #ifndef _beacon_h
 #define _beacon_h
 
@@ -13,6 +13,7 @@ public:
 	int getID() const;
 	double getx() const;
 	double gety() const;
+	friend ostream& operator <<(ostream& out, const Beacon& b);
 
 private:
 	int beacon_id;
