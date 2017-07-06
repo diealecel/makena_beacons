@@ -39,11 +39,13 @@ int calculateThreeCircleIntersection(double x0, double y0, double r0, double x1,
       /* no solution. one circle is contained in the other */
       return false;
     }
-
+    
   /* 'point 2' is the point where the line through the circle                                                                                                                                             
    * intersection points crosses the line between the circle                                                                                                                                              
    * centers.                                                                                                                                                                                             
    */
+
+
 
   /* Determine the distance from point 0 to point 2. */
   a = ((r0*r0) - (r1*r1) + (d*d)) / (2.0 * d) ;
@@ -69,7 +71,7 @@ int calculateThreeCircleIntersection(double x0, double y0, double r0, double x1,
   double intersectionPoint1_y = point2_y + ry;
   double intersectionPoint2_y = point2_y - ry;
  
- cout << "INTERSECTION Circle1 AND Circle2: (" << intersectionPoint1_x << ", " << intersectionPoint1_y << "),  (" 
+  cout << "INTERSECTION Circle1 AND Circle2: (" << intersectionPoint1_x << ", " << intersectionPoint1_y << "),  (" 
                                                << intersectionPoint2_x << ", " << intersectionPoint2_y << endl; 
   
   /* Lets determine if circle 3 intersects at either of the above intersection points. */
@@ -152,5 +154,45 @@ int main() {
       // graphics                                                                                                                                                                                     
  }                                                                                                                                                                                                                                                                                                                                                                       
   return 1;
+=======
+        while(bx < 0 || bx > map_width) {
+            cout << "Beacon " << i << " out of bounds." << endl;
+            cin >> bx;
+        }
+
+        double by = -1;
+
+        cout << "Enter y-coordinate for beacon " << i << ":" << endl;
+        cin >> by;
+
+        while(by < 0 || by > map_length) {
+            cout << "Nope." << endl;
+            cin >> by;
+        }
+        
+        beacons[i] = new Beacon(i, bx, by);
+    }
+
+    for(int i = 0; i < NUM_BEACONS; i++) {
+        cout << *beacons[i];
+    }
+    
+    // Wait for user to be ready for tracking.
+    //system("pause")
+
+    while(true) {
+        // Get beacon numbers and radii from app
+
+        int b0, b1, b2;
+        double r0, r1, r2;
+
+        //get data
+
+        //calculateThreeCircleIntersection(beacons[b0].getx(), beacons[b0].gety(), r0, beacons[b1].getx(), beacons[b1].gety(), r1, beacons[b2].getx(), beacons[b2].gety(), r2);
+
+        //graphics
+
+    }
+>>>>>>> d90161b9049e18ae06898da1c2c775e01b3e2658
 }
 
