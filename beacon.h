@@ -15,9 +15,9 @@ public:
     friend ostream& operator <<(ostream& out, const Beacon& b);
 
 private:
-    int beacon_id;
-    double beaconx;
-    double beacony;
+    int id;
+    double x_pos;
+    double y_pos;
 };
 
 #endif
