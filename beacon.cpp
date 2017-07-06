@@ -1,26 +1,24 @@
 #include "beacon.h"
 
-include "beacon.h"
-
-void beacon_init(int id, double x, double y){
+Beacon::Beacon(int id, double x, double y) {
     beacon_id = id;
     beaconx = x;
     beacony = y;
 }
 
-int get_ID(){
+int Beacon::get_ID() const {
     return beacon_id;
 }
 
-double get_x(){
+double Beacon::get_x() const {
     return beaconx;
 }
 
-double get_y(){
+double Beacon::get_y() const {
     return beacony;
 }
 
-ostream& operator<<(ostream& out, const Beacon& b){
-    out << "Beacon " << beacon_id << " at (" << beaconx << ", " << beacony << ")" << endl; 
+ostream& operator<<(ostream& out, const Beacon& b) {
+    out << "Beacon " << b.get_ID() << " at (" << b.get_x() << ", " << b.get_y() << ")" << endl;
     return out;
 }

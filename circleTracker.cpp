@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include <cmath>
-#include <array.h>
+//#include <array.h>
 #include "beacon.cpp"
 
 #define NUM_BEACONS 7
@@ -20,8 +20,8 @@ int calculateThreeCircleIntersection(double x0, double y0, double r0, double x1,
     double a, dx, dy, d, h, rx, ry;
     double point2_x, point2_y;
 
-    /* dx and dy are the vertical and horizontal distances between                                                                                                                                          
-    * the circle centers.                                                                                                                                                                                  
+    /* dx and dy are the vertical and horizontal distances between
+    * the circle centers.
     */
     dx = x1 - x0;
     dy = y1 - y0;
