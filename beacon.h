@@ -1,4 +1,3 @@
-
 #ifndef _beacon_h
 #define _beacon_h
 
@@ -9,16 +8,16 @@ using namespace std;
 
 class Beacon {
 public:
-   	void beacon_init(int id, double x, double y);
-	int getID() const;
-	double getx() const;
-	double gety() const;
-	friend ostream& operator <<(ostream& out, const Beacon& b);
+    Beacon(int id, double x, double y);
+    int get_ID() const;
+    double get_x() const;
+    double get_y() const;
+    friend ostream& operator <<(ostream& out, const Beacon& b);
 
 private:
-	int beacon_id;
-    double beaconx;
-  	double beacony;
+    int id;
+    double x_pos;
+    double y_pos;
 };
 
 #endif
