@@ -1,4 +1,4 @@
-
+// WOW
 #ifndef _beacon_h
 #define _beacon_h
 
