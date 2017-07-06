@@ -5,34 +5,35 @@
 #include <stdbool.h>
 #include <math.h>
 #include <cmath>
-#include <array.h>
+//#include <array.h>
 #include "beacon.cpp"
 
 #define NUM_BEACONS 7
 #define EPSILON 0.00001
 
-//int beacon_ids[NUM_BEACONS] = {}                                                                                                                                                                        
+//int beacon_ids[NUM_BEACONS] = {}
 
-int main(){
- 
-  // Map Initialization
-  double map_length = -1;  
-  cout << "Enter map length" << endl; 
-  cin << map_length; 
-  while(map_length < 0){
-    cout << "Please enter a positivie map length" << endl; 
-    cin << map_length; 
-  }
-  double map_width = -1; 
-  cout <<"Enter map width" << endl; 
-  cin << map_width; 
-  while(map_width < 0){
-    cout << "Please enter a positivie map width" << endl; 
-    cin << map_width; 
-  }
-  cout << "Map dimensions: (" << map_length << ", " << map_width ")" << endl; 
 
-  //build map                                                                                                                                                                                             
+
+int main() {
+    // Map Initialization
+    double map_length = -1;  
+      cout << "Enter map length" << endl; 
+      cin << map_length; 
+      while(map_length < 0){
+        cout << "Please enter a positivie map length" << endl; 
+        cin << map_length; 
+      }
+      double map_width = -1; 
+      cout <<"Enter map width" << endl; 
+      cin << map_width; 
+      while(map_width < 0){
+        cout << "Please enter a positivie map width" << endl; 
+        cin << map_width; 
+      }
+      cout << "Map dimensions: (" << map_length << ", " << map_width ")" << endl; 
+
+  //build map       
 
   
 
@@ -40,7 +41,7 @@ int main(){
   //Initialize the beacons 
 
     for(int i=0; i<NUM_BEACONS; i++){                                                                                                                                                                       
-       double bx = -1;                                                                                                                                                                                        
+        double bx = -1;                                                                                                                                                                                        
       cout << "Enter x coordinate for beacon " << i << ":" << endl; 
       cin << bx;  
       while(bx < 0 || bx > map_width){
@@ -54,10 +55,9 @@ int main(){
           cout << "Beacon " << i << " out of bounds, please enter valid y coordinate" << endl;
           cin << by;    
      }                                                                                                                                                                                        
-      Beacon b;                                                                                                                                                                                             
-      b.beacon_init(i, bx, by);                                                                                                                                                               
-      beacons[i] = b;                                                                                                                                                                                      
-  }          
+      Beacon b(i, bx, by);
+      beacons[i] = b;
+    }          
 
   for(int i =0; i<NUM_BEACONS; i++){
     cout << beacons[i]; 
