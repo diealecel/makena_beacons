@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class circleTracker {
 
-	public void main(){
+	public static void main(String[] args){
 		Console console = System.console();
 		Scanner in = new Scanner(System.in);
 
