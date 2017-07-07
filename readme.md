@@ -1,3 +1,3 @@
 # makena_beacons
 
-Uses three beacons to triangulate the location of a device.
+Uses three bluetooth beacons to triangulate the location of a device.
