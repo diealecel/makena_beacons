@@ -6,7 +6,7 @@ import java.lang.*;
 public class main_method {
     public static final double EPSILON = .00001;
 
-    public static double[] triangulate(double x0, double y0, double r0, double x1, double y1, double r1, double x2, double y2, double r2) {
+    public double[] triangulate(double x0, double y0, double r0, double x1, double y1, double r1, double x2, double y2, double r2) {
         double a, dx, dy, d, h, rx, ry;
         double point2_x, point2_y;
         
@@ -82,14 +82,14 @@ public class main_method {
 		Console console = System.console();
 		Scanner in = new Scanner(System.in);
 
-		double map_length = -1;  
+		int map_length = -1;  
 		System.out.println("Map Length? ");
   	  	map_length = in.nextInt();
   	  	 while(map_length < 0){
   	  	 	System.out.println("Please enter a positivie map length");
       	   map_length = in.nextInt();
     	  }
-  	   double map_width = -1;  
+  	   int map_width = -1;  
   	   System.out.println("Map Width? ");
   	   map_width = in.nextInt();
   	   while(map_width < 0){
@@ -98,10 +98,10 @@ public class main_method {
       	}
      	System.out.println("Map length = " + map_length +", Map width = " + map_width); 
 
-     	Beacon[] beacons = new Beacon[7];
+     	Beacon[] beacons = new Beacon[3];
 
 
-     	 for(int i=0; i<7; i++){                                                                                                                                                                       
+     	 for(int i=0; i<3; i++){                                                                                                                                                                       
        		 double bx = -1;                                                                                                                                                                                        
       		 System.out.println("Enter x coordinate for beacon " + i); 
       		 bx = in.nextInt();
@@ -129,8 +129,8 @@ public class main_method {
         beacons[0].set_radius(Math.sqrt(   Math.pow(   beacons[0].get_x() - x , 2  )   +   Math.pow(   beacons[0].get_y() - y , 2  )));
         beacons[1].set_radius(Math.sqrt(   Math.pow(   beacons[1].get_x() - x , 2  )   +   Math.pow(   beacons[1].get_y() - y , 2  )));
         beacons[2].set_radius(Math.sqrt(   Math.pow(   beacons[2].get_x() - x , 2  )   +   Math.pow(   beacons[2].get_y() - y , 2  )));
-
-        initializeGraphics(map_length, map_width, x, y, beacons[0], beacons[1], beacons[2]);
+        
+        Mapper map = new Mapper(map_length, map_width, x, y, beacons[0], beacons[1], beacons[2]);
 
       	while(true){   
           System.out.println("Target X");  
@@ -142,7 +142,7 @@ public class main_method {
           beacons[1].set_radius(Math.sqrt(   Math.pow(   beacons[1].get_x() - x , 2  )   +   Math.pow(   beacons[1].get_y() - y , 2  )));
           beacons[2].set_radius(Math.sqrt(   Math.pow(   beacons[2].get_x() - x , 2  )   +   Math.pow(   beacons[2].get_y() - y , 2  )));
 
-          updateBoard(x, y, beacons[0], beacons[1], beacons[2]);
+          map.updateBoard(x, y, beacons[0], beacons[1], beacons[2]);
 
           /*                                                                                                                                                                                                                                                                                                                                                    
      		  System.out.println("Enter distance to Beacon 0");  

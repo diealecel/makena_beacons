@@ -3,10 +3,10 @@ import acm.graphics.*;
 import java.awt.*;
 
 public class Mapper extends GraphicsProgram {
-    GOval target, beacon_1, beacon_1r, beacon_2, beacon_2r, beacon_3, beacon_3r; 
+    private GOval target, beacon_1, beacon_1r, beacon_2, beacon_2r, beacon_3, beacon_3r; 
  
-    public void initializeBoard(int map_length, int map_width, double target_x,
-                                double target_y, Beacon b0, Beacon b1, Beacon b2) {
+    public Mapper(int map_length, int map_width, double target_x,
+                  double target_y, Beacon b0, Beacon b1, Beacon b2) {
         setSize(1000, 2000);
     	pause(10);
     	/*
