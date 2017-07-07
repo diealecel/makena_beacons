@@ -2,13 +2,12 @@ import acm.program.*;
 import acm.graphics.*;
 import java.awt.*;
 
-
 public class Mapper extends GraphicsProgram {
-
-GOval target, beacon_1, beacon_1r, beacon_2, beacon_2r, beacon_3, beacon_3r; 
+    GOval target, beacon_1, beacon_1r, beacon_2, beacon_2r, beacon_3, beacon_3r; 
  
-   public void initializeBoard(int map_length, int map_width, double target_x, double target_y, Beacon b0, Beacon b1, Beacon b2) {
-    	setSize(1000, 2000);
+    public void initializeBoard(int map_length, int map_width, double target_x,
+                                double target_y, Beacon b0, Beacon b1, Beacon b2) {
+        setSize(1000, 2000);
     	pause(10);
     	/*
     	GPolygon room = new GPolygon(500, 1000); 
@@ -22,9 +21,9 @@ GOval target, beacon_1, beacon_1r, beacon_2, beacon_2r, beacon_3, beacon_3r;
     	room.addEdge(); 
     	room.addEdge(); 
     	room.addEdge(); 
-		*/
+	*/
 
-    	//Adjust coordinates for offsets
+    	// Adjust coordinates for offsets.
      	target = new GOval(target_x, target_y, 25, 25);
      	target.setFilled(true);
      	target.setColor(Color.GREEN);
@@ -59,16 +58,12 @@ GOval target, beacon_1, beacon_1r, beacon_2, beacon_2r, beacon_3, beacon_3r;
      	beacon_3r.setFilled(false);
      	beacon_3r.setColor(Color.BLACK);
      	add(beacon_3r);
-   }
+    }
 
-   public void updateBoard(double target_x, double target_y, Beacon b0, Beacon b1, Beacon b2) {
-   		target.setLocation(target_x, target_y); 
-   		beacon_1r.setSize(b0.get_radius(), b0.get_radius()); 
-   		beacon_2r.setSize(b1.get_radius(), b1.get_radius()); 
-   		beacon_3r.setSize(b2.get_radius(), b2.get_radius()); 
-   }
- 
-/** Constant representing the golden ratio */
-   public static final double PHI = 1.618;
- 
+    public void updateBoard(double target_x, double target_y, Beacon b0, Beacon b1, Beacon b2) {
+        target.setLocation(target_x, target_y); 
+        beacon_1r.setSize(b0.get_radius(), b0.get_radius()); 
+        beacon_2r.setSize(b1.get_radius(), b1.get_radius()); 
+        beacon_3r.setSize(b2.get_radius(), b2.get_radius()); 
+    }
 } 
