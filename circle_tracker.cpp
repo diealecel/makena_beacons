@@ -5,13 +5,6 @@
 #include <stdbool.h>
 #include <math.h>
 #include <cmath>
-#include "filelib.h"
-#include "gobjects.h"
-#include "grid.h"
-#include "gtypes.h"
-#include "gwindow.h"
-#include "bogglegui.h"
-#include "boggle.h"
 //#include <array.h>
 #include "beacon.cpp"
 
@@ -24,6 +17,7 @@ Beacon *beacons[NUM_BEACONS];
 
 int calculateThreeCircleIntersection(double x0, double y0, double r0, double x1, double y1, double r1, double x2, double y2, double r2)
 {
+  cout << "hello" << endl; 
   double a, dx, dy, d, h, rx, ry;
   double point2_x, point2_y;
 
@@ -81,7 +75,7 @@ int calculateThreeCircleIntersection(double x0, double y0, double r0, double x1,
   double intersectionPoint2_y = point2_y - ry;
  
   //cout << "INTERSECTION Circle1 AND Circle2: (" << intersectionPoint1_x << ", " << intersectionPoint1_y << "),  (" 
-                                               << intersectionPoint2_x << ", " << intersectionPoint2_y << endl; 
+                                            //   << intersectionPoint2_x << ", " << intersectionPoint2_y << endl; 
   
   /* Lets determine if circle 3 intersects at either of the above intersection points. */
   dx = intersectionPoint1_x - x2;
@@ -93,12 +87,11 @@ int calculateThreeCircleIntersection(double x0, double y0, double r0, double x1,
   double d2 = sqrt((dy*dy) + (dx*dx));
 
   if(abs(d1 - r2) < EPSILON) {
-     
-     //cout << "INTERSECTION Circle1 AND Circle2 AND Circle3: (" << intersectionPoint1_x << ", " << intersectionPoint1_y << ")" << endl; 
+     cout << "INTERSECTION Circle1 AND Circle2 AND Circle3: (" << intersectionPoint1_x << ", " << intersectionPoint1_y << ")" << endl; 
   }
   else if(abs(d2 - r2) < EPSILON) {
      
-    //cout << "INTERSECTION Circle1 AND Circle2 AND Circle3: (" << intersectionPoint2_x << ", " << intersectionPoint2_y << ")" << endl; //here was an error                                                                   
+    cout << "INTERSECTION Circle1 AND Circle2 AND Circle3: (" << intersectionPoint2_x << ", " << intersectionPoint2_y << ")" << endl; //here was an error                                                                   
   }
   else {
     cout << "INTERSECTION Circle1 AND Circle2 AND Circle3: NONE" << endl;
@@ -156,15 +149,16 @@ int main() {
   //wait for user to be ready for tracking                                                                                                                                                                
   //getLine("Press Enter to begin tracking... ");
 
-  while(true){}                                                                                                                                                                                                                                                                                                                                                              
-      int b0 = 0; 
-      int b1 = 1; 
-      int b2 = 2;                                                                                                                                                                                   
-      double r0 = 100; 
-      double r1 = 100; 
-      double r2 = 100;                                                                                                                                                                                
-                                                                                                                                                                                               
-      calculateThreeCircleIntersection(beacons[b0]->get_x(), beacons[b0]->get_y(), r0, beacons[b1]->get_x(), beacons[b1]->get_y(), r1, beacons[b2]->get_x(), beacons[b2]->get_y(), r2);                               
+  while(true){                                                                                                                                                                                                                                                                                                                                                             
+        double r0, r1, r2; 
+        cout << "Enter radius for beacon " << 0 << ":" << endl; 
+        cin >> r0;  
+        cout << "Enter radius for beacon " << 1 << ":" << endl; 
+        cin >> r0;  
+        cout << "Enter radius for beacon " << 2 << ":" << endl; 
+        cin >> r0;         
+                                                                                                                                                                                                                                                                                                                                                      
+      calculateThreeCircleIntersection(beacons[0]->get_x(), beacons[0]->get_y(), r0, beacons[1]->get_x(), beacons[1]->get_y(), r1, beacons[2]->get_x(), beacons[2]->get_y(), r2);                               
       // graphics                                                                                                                                                                                     
 }                                                                                                                                                                                                                                                                                                                                                                       
   return 1;
