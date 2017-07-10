@@ -81,7 +81,7 @@ public class main_method {
 	public static void main(String args[]){
 		Console console = System.console();
 		Scanner in = new Scanner(System.in);
-
+    /*
 		int map_length = -1;  
 		System.out.println("Map Length? ");
   	  	map_length = in.nextInt();
@@ -115,10 +115,24 @@ public class main_method {
       	 while(by < 0 || by > map_width){
          	 System.out.println("Beacon " + i + " out of bounds, please enter valid y coordinate");  
         	 by = in.nextInt(); 
-    	  }  
+    	  }   
     	  Beacon b = new Beacon(i, bx, by);                                                                                                                                                                  
       	  beacons[i] = b; 
       	}
+  */
+        int map_length = 5000;  
+        int map_width = 5000;  
+        int offset = 100; 
+
+        Beacon[] beacons = new Beacon[3];
+        Beacon b0 = new Beacon(0, 450, 485); 
+        beacons[0] = b0; 
+        Beacon b1 = new Beacon(1, 435, 10); 
+        beacons[1] = b1; 
+        Beacon b2 = new Beacon(2, 50, 10); 
+        beacons[2] = b2; 
+
+
 
         double x, y; 
         System.out.println("Target X");  
@@ -132,12 +146,33 @@ public class main_method {
         
         Mapper map = new Mapper(map_length, map_width, x, y, beacons[0], beacons[1], beacons[2]);
 
+
+        System.out.println("Press enter to start tracking...");
+        while(!in.hasNext());
+
+
       	while(true){   
+          if(x < 380 && y == 170){
+            x++; 
+          } else if(x == 380 && y < 370){
+            y++; 
+          } else if(x > 30 && y == 370){
+            x--; 
+          } else if(x == 30 && y > 170){
+            y--; 
+          }
+
+          try {
+              Thread.sleep(20);
+        } catch (InterruptedException e) { }
+
+          /*
           System.out.println("Target X");  
           x = in.nextInt(); 
           System.out.println("Target Y");  
           y = in.nextInt(); 
-
+          */
+    
           beacons[0].set_radius(Math.sqrt(   Math.pow(   beacons[0].get_x() - x , 2  )   +   Math.pow(   beacons[0].get_y() - y , 2  )));
           beacons[1].set_radius(Math.sqrt(   Math.pow(   beacons[1].get_x() - x , 2  )   +   Math.pow(   beacons[1].get_y() - y , 2  )));
           beacons[2].set_radius(Math.sqrt(   Math.pow(   beacons[2].get_x() - x , 2  )   +   Math.pow(   beacons[2].get_y() - y , 2  )));
