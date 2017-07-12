@@ -146,10 +146,34 @@ public class main_method {
         
         Mapper map = new Mapper(map_length, map_width, x, y, beacons[0], beacons[1], beacons[2]);
 
+        System.out.println("Press any key to add beacons...");
+        while(!in.hasNext());
+        in.nextLine(); 
+        in.nextLine(); 
+
+        map.addBeacons(x, y, beacons[0], beacons[1], beacons[2]);
+    
+
+        System.out.println("Press any key to add first circle...");
+        while(!in.hasNext());
+        in.nextLine(); 
+
+        map.addFirstCircle(x, y, beacons[2]); 
+
+        System.out.println("Press any key to add second circles...");
+        while(!in.hasNext());
+        in.nextLine(); 
+
+        map.addSecondCircle(x, y, beacons[1]);
+
+        System.out.println("Press any key to add third circles...");
+        while(!in.hasNext());
+        in.nextLine(); 
+
+        map.addThirdCircle(x, y, beacons[0]);
 
         System.out.println("Press enter to start tracking...");
         while(!in.hasNext());
-
 
       	while(true){   
           if(x < 380 && y == 170){
